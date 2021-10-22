@@ -3,6 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="fullTimeMentor" class="services.FullTimeMentor"></bean>
-    <bean id="partTimeMentor" class="services.PartTimeMentor"></bean>
+    <bean id="java" class="com.company.services.Java">
+        <constructor-arg ref="officeHours"/>
+    </bean>
+    <bean id="selenium" class="com.company.services.Selenium"></bean>
+    <bean id="officeHours" class="com.company.services.OfficeHours"></bean>
 </beans>
