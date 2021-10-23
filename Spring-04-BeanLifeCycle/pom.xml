@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>Spring-03-BeanScope-Singleton-Prototype</artifactId>
+    <artifactId>Spring-04-BeanLifeCycle</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
