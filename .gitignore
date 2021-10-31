@@ -5,3 +5,8 @@ log/
 out
 *.iml
 *.iws
+mvnw
+mvnw.bat
+mvnw.cmd
+.mvn
+*.gitignore
