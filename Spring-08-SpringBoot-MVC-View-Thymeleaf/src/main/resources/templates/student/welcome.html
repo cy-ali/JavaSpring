@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>WELCOME</title>
+</head>
+<body>
+<h2>Hi <span th:text="${name}"></span>;</h2>
+Welcome to Spring Class for the Students!!!
+<div>
+    <h3>Your information:</h3>
+    <p><b>Student ID:</b> <span th:text="${studentID}"></span></p>
+    <p><b>Course:</b> <span th:text="${course}"></span></p>
+    <p><b>Subject:</b> <span th:text="${subject}"></span></p>
+    <p><b>Numbers:</b> <span th:text="${numbers}"></span></p>
+    <p><b>Number - 1:</b> <span th:text="${numbers.get(0)}"></span></p>
+    <p><b>Birthday:</b> <span th:text="${birthday}"></span></p>
+    <p><b>Message: </b> <span th:text="${'Hello ' + name + '! Welcome to the course platform...'}"></span></p>
+    <br>
+    <p th:text="${student.getFirstName()}"></p>
+    <p th:text="${student.firstName}"></p>
+    <p>---LINK---</p>
+    <a th:href="@{https://google.com}">This is a Google link...</a>
+    <br>
+    <a th:href="@{/student/register}">Register</a>
+
+    <p>--ADDING PARAMETER TO LINK--</p>
+    <a th:href="@{/student/welcome(id=3)}">Link with parameter - 1</a>
+    <a th:href="@{/student/welcome(id=${student.id})}">Link with parameter - 1</a>
+
+    <p>---ITERATION--</p>
+    <ul>
+        <li th:each="number : ${numbers}" th:text="${number}"></li>
+    </ul>
+    <!--Fragment-->
+    <div th:replace="fragments/footer :: footer-frag"></div>
+</div>
+</body>
+</html>
