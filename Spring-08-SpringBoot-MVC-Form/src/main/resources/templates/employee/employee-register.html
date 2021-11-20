@@ -14,7 +14,7 @@
 
 <div class="card-body">
     <form th:object="${employee}" action="/employee/confirm" method="post"
-          class="needs-validation was-validated" novalidate="">
+          class="needs-validation" novalidate="">
         <div class="form-row mb-2">
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 ">
                 <label for="validationCustom01">First name</label>
@@ -56,11 +56,14 @@
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
                 <label for="validationPassword">Password</label>
                 <input th:field="*{password}" type="password" class="form-control" id="validationPassword"
-                       placeholder="Password"
+                       placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"
+
                        required="">
                 <div class="invalid-feedback">
-                    Please enter a password!
+                    Must contain at least one number and one uppercase and lowercase letter, and at least 4 or
+                    more characters
                 </div>
+
             </div>
         </div>
         <div class="form-row mb-2">
@@ -103,7 +106,7 @@
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 ">
                 <label for="validationCustom05">Zip</label>
                 <input th:field="*{zip}" type="text" class="form-control" id="validationCustom05" placeholder="Zip"
-                       required="">
+                       pattern="[0-9]{5}" required="">
                 <div class="invalid-feedback">
                     Please provide a valid zip.
                 </div>
@@ -127,5 +130,21 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+<script>(function () {
+    'use strict'
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+})()</script>
 </body>
 </html>

@@ -2,10 +2,6 @@ package com.company.model;
 
 import lombok.*;
 
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
