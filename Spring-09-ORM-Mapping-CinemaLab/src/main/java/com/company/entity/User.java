@@ -8,13 +8,13 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import java.util.List;
 
 @Entity
+@Table(name = "user_account")
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserAccount extends BaseEntity {
+public class User extends BaseEntity {
 
     @Column(nullable = false)
     @Email
@@ -24,10 +24,15 @@ public class UserAccount extends BaseEntity {
     private String password;
     private String username;
 
-    @OneToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
-    private AccountDetails accountDetails;
+    @OneToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    private Account accountDetails;
 
-    @OneToMany(mappedBy = "userAccount")
-    private List<Ticket> tickets;
+//    @OneToMany(mappedBy = "userAccount")
+//    private List<Ticket> tickets;
 
+    public User(String email, String password, String username) {
+        this.email = email;
+        this.password = password;
+        this.username = username;
+    }
 }

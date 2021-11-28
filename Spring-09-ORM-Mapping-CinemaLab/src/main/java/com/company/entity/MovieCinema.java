@@ -16,13 +16,16 @@ public class MovieCinema extends BaseEntity {
 
     private LocalDateTime dateTime;
 
-    @OneToMany(mappedBy = "movieCinema")
-    private List<Ticket> ticket;
+//    @OneToMany(mappedBy = "movieCinema")
+//    private List<Ticket> ticket;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cinema cinema;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Movie movie;
 
+    public MovieCinema(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
 }

@@ -1,5 +1,5 @@
 package com.company.enums;
 
-public enum Type {
+public enum MovieType {
     PREMIER, REGULAR
 }

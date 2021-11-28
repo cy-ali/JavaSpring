@@ -1,5 +1,5 @@
 package com.company.enums;
 
-public enum State {
+public enum MovieState {
     ACTIVE, DRAFT, SUSPENDED
 }

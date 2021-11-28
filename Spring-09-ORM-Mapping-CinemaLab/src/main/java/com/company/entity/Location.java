@@ -25,8 +25,18 @@ public class Location extends BaseEntity {
     private String postalCode;
     private String address;
 
-    @OneToMany(mappedBy = "location")
-    private List<Cinema> cinemas;
+//    @OneToMany(mappedBy = "location")
+//    private List<Cinema> cinemas;
 
 
+    public Location(String name, String latitude, String longitude, String country, String city, String state, String postalCode, String address) {
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.country = country;
+        this.city = city;
+        this.state = state;
+        this.postalCode = postalCode;
+        this.address = address;
+    }
 }

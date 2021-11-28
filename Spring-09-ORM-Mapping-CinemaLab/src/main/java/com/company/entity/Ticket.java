@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -20,11 +17,15 @@ public class Ticket extends BaseEntity {
     private Integer seatNumber;
     private Integer rowNumber;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
-    private UserAccount userAccount;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User userAccount;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private MovieCinema movieCinema;
 
-
+    public Ticket(Integer seatNumber, Integer rowNumber, LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+        this.seatNumber = seatNumber;
+        this.rowNumber = rowNumber;
+    }
 }

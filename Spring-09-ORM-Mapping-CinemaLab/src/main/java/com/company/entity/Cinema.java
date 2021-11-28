@@ -16,10 +16,14 @@ public class Cinema extends BaseEntity {
     private String name;
     private String sponsoredName;
 
-    @OneToMany(mappedBy = "cinema")
-    private List<MovieCinema> movieCinemas;
+//    @OneToMany(mappedBy = "cinema")
+//    private List<MovieCinema> movieCinemas;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.LAZY)
     private Location location;
 
+    public Cinema(String name, String sponsoredName) {
+        this.name = name;
+        this.sponsoredName = sponsoredName;
+    }
 }

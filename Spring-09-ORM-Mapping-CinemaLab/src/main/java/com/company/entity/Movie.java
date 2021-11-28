@@ -1,16 +1,16 @@
 package com.company.entity;
 
-import com.company.enums.State;
-import com.company.enums.Type;
+import com.company.enums.MovieState;
+import com.company.enums.MovieType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -19,19 +19,32 @@ import java.util.Set;
 public class Movie extends BaseEntity {
 
     private String name;
-    private Double price;
+    private Integer price;
     @Enumerated(EnumType.STRING)
-    private Type type;
+    @Column(name = "type")
+    private MovieType movieType;
     @Enumerated(EnumType.STRING)
-    private State state;
+    @Column(name = "state")
+    private MovieState movieState;
     private LocalDate releaseDate;
-    private String duration;
+    private BigDecimal duration;
+
+    @Column(columnDefinition = "text")
     private String summary;
 
-    @OneToMany(mappedBy = "movie")
-    private List<MovieCinema> movieCinemas;
+//    @OneToMany(mappedBy = "movie")
+//    private List<MovieCinema> movieCinemas;
 
     @ManyToMany
-    @JoinTable(name = "movie_genre_rel")
-    private Set<Genre> genre = new HashSet<>();
+    @JoinTable(name = "movie_genre_rel", inverseJoinColumns = @JoinColumn(name = "genre_id"))
+    private List<Genre> genreList = new ArrayList<>();
+
+    public Movie(String name, LocalDate releaseDate, Integer price, MovieType movieType, MovieState movieState, BigDecimal duration) {
+        this.name = name;
+        this.price = price;
+        this.movieType = movieType;
+        this.movieState = movieState;
+        this.releaseDate = releaseDate;
+        this.duration = duration;
+    }
 }

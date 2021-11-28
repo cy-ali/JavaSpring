@@ -6,7 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,6 +19,10 @@ public class Genre extends BaseEntity {
 
     private String name;
 
-    @ManyToMany(mappedBy = "genre")
-    private Set<Movie> movie = new HashSet<>();
+    @ManyToMany(mappedBy = "genreList")
+    private List<Movie> movie = new ArrayList<>();
+
+    public Genre(String name) {
+        this.name = name;
+    }
 }
