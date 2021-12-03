@@ -29,7 +29,7 @@ public class Location extends BaseEntity {
 //    private List<Cinema> cinemas;
 
 
-    public Location(String name, String latitude, String longitude, String country, String city, String state, String postalCode, String address) {
+    public Location(String name, String latitude, String longitude, String postalCode, String country, String city, String state, String address) {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;

@@ -3,6 +3,7 @@ package com.company.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -25,5 +26,13 @@ public class Cinema extends BaseEntity {
     public Cinema(String name, String sponsoredName) {
         this.name = name;
         this.sponsoredName = sponsoredName;
+    }
+
+    @Override
+    public String toString() {
+        return "Cinema{" +
+                "name='" + name + '\'' +
+                ", sponsoredName='" + sponsoredName + '\'' +
+                '}';
     }
 }

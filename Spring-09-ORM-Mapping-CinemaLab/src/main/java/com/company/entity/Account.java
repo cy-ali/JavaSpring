@@ -4,14 +4,17 @@ import com.company.enums.UserRole;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "account_details")
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Account extends BaseEntity {
 
     private String name;

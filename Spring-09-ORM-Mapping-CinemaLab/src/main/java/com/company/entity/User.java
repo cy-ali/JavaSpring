@@ -3,6 +3,7 @@ package com.company.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -34,5 +35,15 @@ public class User extends BaseEntity {
         this.email = email;
         this.password = password;
         this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                "}";
     }
 }

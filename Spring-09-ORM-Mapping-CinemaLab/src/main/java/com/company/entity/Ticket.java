@@ -3,6 +3,7 @@ package com.company.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -27,5 +28,15 @@ public class Ticket extends BaseEntity {
         this.dateTime = dateTime;
         this.seatNumber = seatNumber;
         this.rowNumber = rowNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "id=" + id +
+                ", dateTime=" + dateTime +
+                ", seatNumber=" + seatNumber +
+                ", rowNumber=" + rowNumber +
+                '}';
     }
 }
