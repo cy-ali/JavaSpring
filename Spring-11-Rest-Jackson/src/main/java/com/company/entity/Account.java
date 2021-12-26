@@ -3,6 +3,7 @@ package com.company.entity;
 import com.company.enums.UserRole;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Getter;
@@ -20,7 +21,7 @@ import java.time.LocalDate;
 @Setter
 @ToString
 @JsonIgnoreProperties(value = {"state", "postalCode","hibernateLazyInitializer","id"})
-//@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Account extends BaseEntity {
 
     private String name;
