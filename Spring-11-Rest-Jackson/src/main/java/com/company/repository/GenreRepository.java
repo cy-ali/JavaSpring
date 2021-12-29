@@ -21,4 +21,7 @@ public interface GenreRepository extends JpaRepository<Genre, Long> {
     @Query(value = "SELECT * FROM genre WHERE name ILIKE '%' || ?1 || '%'", nativeQuery = true)
     Genre getGenreWithName(String name);
 
+    @Query(value = "Select count(*) From genre g Join movie_genre_rel mgr On g.id = mgr.genre_id Where g.id = ?1", nativeQuery = true)
+    Integer countGenresNativeQuery(Long id);
+
 }
