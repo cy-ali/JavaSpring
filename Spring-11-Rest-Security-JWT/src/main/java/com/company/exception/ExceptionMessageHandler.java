@@ -1,9 +1,8 @@
 package com.company.exception;
 
-import com.annotation.DefaultExceptionMessage;
+import com.company.annotation.DefaultExceptionMessage;
 import com.company.entity.DefaultExceptionMessageDto;
 import com.company.entity.ResponseWrapper;
-import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;

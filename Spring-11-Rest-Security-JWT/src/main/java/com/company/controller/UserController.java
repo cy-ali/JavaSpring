@@ -1,6 +1,5 @@
 package com.company.controller;
 
-import com.annotation.DefaultExceptionMessage;
 import com.company.entity.ResponseWrapper;
 import com.company.entity.User;
 import com.company.service.UserService;
