@@ -40,13 +40,9 @@ public class ProductController {
 
 
     @PostMapping
-    public ResponseEntity<List<Product>> saveProducts(@RequestBody Product product) {
+    public List<Product> saveProducts(@RequestBody Product product) {
         List<Product> set = productService.createProduct(product);
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .header("Version", "Company.V1")
-                .header("Operation", "Create")
-                .body(set);
+        return set;
     }
 
     @DeleteMapping("/{id}")
