@@ -2,7 +2,6 @@ package com.company.implementation;
 
 import com.company.dto.TaskDTO;
 import com.company.entity.Task;
-import com.company.mapper.ProjectMapper;
 import com.company.mapper.TaskMapper;
 import com.company.repository.TaskRepository;
 import org.junit.jupiter.api.Test;
@@ -13,11 +12,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.data.util.Optionals;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.never;
